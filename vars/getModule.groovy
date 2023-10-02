@@ -8,8 +8,8 @@ def call(String fileName,String moduleName) {
     echo bas
     echo son 
 
-    echo modBasIndeks
-    echo modSonIndeks
+    echo "${modBasIndeks}"
+    echo "${modSonIndeks}"
     if (modBasIndeks != -1 && modSonIndeks != -1) {
         currentConfig = file.substring(modBasIndeks, modSonIndeks + endModule.length()) 
     }
