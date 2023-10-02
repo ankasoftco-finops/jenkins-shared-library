@@ -15,7 +15,9 @@ def call(currentConfig, newConfig) {
 def parseTerraformModule(moduleString) {
     def moduleMap = [:]
     moduleString.eachLine { line ->
+        echo "line: ${line}"
         if (line =~ /(\S+)\s*=\s*"([^"]*)"/) {
+            echo "line: ${line}"
             moduleMap[line[1].trim()] = line[2].trim()
         }
     }
