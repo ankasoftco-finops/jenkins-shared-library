@@ -9,6 +9,7 @@ def call(String giturl, String branch = "dev") {
                     userRemoteConfigs: [[credentialsId: 'github', url: giturl]]
                 ])
             }
+            sh "git submodule update --remote"
         }catch (Exception e) {
             sleep(time:5,unit:"SECONDS")
             error("Something went wrong during git clone: " + e)
