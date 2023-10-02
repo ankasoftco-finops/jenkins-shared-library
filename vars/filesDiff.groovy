@@ -1,3 +1,7 @@
+import com.ofu.FileHelper
+
 String call(String main, String newConfig, String moduleName) {
-    return readFile(main)
+    def fileHelper = new FileHelper()
+    def currentConfig = fileHelper.readFile(main)
+    return currentConfig
 }

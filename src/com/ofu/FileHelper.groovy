@@ -1,9 +1,10 @@
+package com.ofu
+
 class FileHelper {
 
     String readFile(String main) {
-        def file = new File(main)
-        def fileContents = file.text
-        return fileContents
+        def file = readFile(main).text
+        return file
     }
 
     def substringString(File file,String bas, String son) {
