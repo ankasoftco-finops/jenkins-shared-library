@@ -18,7 +18,8 @@ def parseTerraformModule(moduleString) {
     moduleString.eachLine { line ->
         echo "line: ${line}"
         if (line =~ /(\S+)\s*=\s*"([^"]*)"/) {
-            echo "line: ${line}"
+            echo "line: ${line[1].trim()}"
+            echo "line: ${line[2].trim()}"
             moduleMap[line[1].trim()] = line[2].trim()
         }
     }
