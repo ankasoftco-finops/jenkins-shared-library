@@ -12,18 +12,6 @@ def call(currentConfig, newConfig) {
     return updatedModule
 }
 
-@NonCPS
-def parseTerraformModule(moduleString) {
-    def moduleMap = [:]
-    moduleString.eachLine { line ->
-        def matcher = line =~ /(\S+)\s*=\s*"([^"]*)"/
-        if (matcher) {
-            moduleMap[matcher.group(1).trim()] = matcher.group(2).trim()
-        }
-    }
-    return moduleMap
-}
-
 def formatTerraformModule(moduleMap,moduleName) {
     def formattedModule = "module \"${moduleName}\" {\n"
     moduleMap.each { key, value ->
