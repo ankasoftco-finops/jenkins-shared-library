@@ -7,7 +7,8 @@ def call(currentConfig, newConfig) {
         }
         echo "key: ${key}, value: ${value}"
     }
-    def updatedModule = formatTerraformModule(currentMap)
+    def moduleName = currentMap['module']
+    def updatedModule = formatTerraformModule(currentMap,moduleName)
 
     return updatedModule
 }
@@ -18,21 +19,19 @@ def parseTerraformModule(moduleString) {
     moduleString.eachLine { line ->
         def matcher = line =~ /(\S+)\s*=\s*"([^"]*)"/
         if (matcher) {
-            echo "matcher: ${matcher}"
-            echo "matcher: ${matcher.group(1).trim()}"
             moduleMap[matcher.group(1).trim()] = matcher.group(2).trim()
         }
     }
     return moduleMap
 }
 
-def formatTerraformModule(moduleMap) {
-    def formattedModule = "module \"${moduleMap['module']}\" {\n"
+def formatTerraformModule(moduleMap,moduleName) {
+    def formattedModule = "module \"${moduleName}\" {\n"
     moduleMap.each { key, value ->
         if (key != 'module') {
             formattedModule += "    ${key} = \"${value}\"\n"
         }
     }
-    formattedModule += "}\n# end ${moduleMap['module']}"
+    formattedModule += "}\n# end ${moduleName}"
     return formattedModule
 }
