@@ -1,4 +1,4 @@
-def getCommonDiff(currentConfig, newConfig) {
+def call(currentConfig, newConfig) {
     def currentMap = parseTerraformModule(currentConfig)
     def newMap = parseTerraformModule(newConfig)
     newMap.each { key, value ->
