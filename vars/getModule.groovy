@@ -1,4 +1,4 @@
-String call(String fileName,String moduleName) {
+def call(String fileName,String moduleName) {
     def bas =  "module "+module_name+" }"
     def son = "# end "+moduleName
     def file = readFile(file)
