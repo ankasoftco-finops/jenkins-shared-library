@@ -9,9 +9,7 @@ def git_clone(String giturl, String branch = "dev") {
                     userRemoteConfigs: [[credentialsId: 'github', url: giturl]]
                 ])
             }
-        } catch (FlowInterruptedException e) {
-            error("Timeout has been exceeded")
-        } catch (Exception e) {
+        }catch (Exception e) {
             sleep(time:5,unit:"SECONDS")
             error("Something went wrong during git clone: " + e)
         }
