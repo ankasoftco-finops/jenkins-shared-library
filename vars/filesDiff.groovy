@@ -1,5 +1,6 @@
 import com.ofu.FileHelper
 
-def call(String main, String newConfig) {
-    return FileHelper.substringString(main, newConfig)
+String call(File currentConfig, File newConfig, String moduleName) {
+    def fileHelper = new FileHelper()
+    return fileHelper.substringString("module "+ moduleName+ " {", "# end" + moduleName )
 }
