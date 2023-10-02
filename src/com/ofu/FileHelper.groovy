@@ -1,4 +1,4 @@
-class FileHelpers {
+class FileHelper {
 
     def readFile(String main) {
         def file = new File(main)
