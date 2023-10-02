@@ -1,6 +1,6 @@
 class FileHelper {
 
-    def readFile(String main) {
+    String readFile(String main) {
         def file = new File(main)
         def fileContents = file.text
         return fileContents
