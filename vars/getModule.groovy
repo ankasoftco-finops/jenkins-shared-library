@@ -5,7 +5,11 @@ def call(String fileName,String moduleName) {
     def modBasIndeks = file.indexOf(bas)
     def modSonIndeks = file.indexOf(son)
     def currentConfig = ""
-    
+    echo bas
+    echo son 
+
+    echo modBasIndeks
+    echo modSonIndeks
     if (modBasIndeks != -1 && modSonIndeks != -1) {
         currentConfig = file.substring(modBasIndeks, modSonIndeks + endModule.length()) 
     }
