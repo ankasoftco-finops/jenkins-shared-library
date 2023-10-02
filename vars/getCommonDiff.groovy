@@ -16,11 +16,11 @@ def call(currentConfig, newConfig) {
 def parseTerraformModule(moduleString) {
     def moduleMap = [:]
     moduleString.eachLine { line ->
-        echo "line: ${line}"
-        if (line =~ /(\S+)\s*=\s*"([^"]*)"/) {
-            echo "line: ${line[1].trim()}"
-            echo "line: ${line[2].trim()}"
-            moduleMap[line[1].trim()] = line[2].trim()
+        def matcher = line =~ /(\S+)\s*=\s*"([^"]*)"/
+        if (matcher) {
+            echo "matcher: ${matcher}"
+            echo "matcher: ${matcher.group(1).trim()}"
+            moduleMap[matcher.group(1).trim()] = matcher.group(2).trim()
         }
     }
     return moduleMap
