@@ -1,13 +1,9 @@
 package com.ofu
 
+
 class FileHelper {
 
-    String readFileWPath(String main) {
-        def file = readFile(main).text
-        return file
-    }
-
-    def substringString(File file,String bas, String son) {
+    def substringString(String file,String bas, String son) {
         def modBasIndeks = file.indexOf(bas)
         def modSonIndeks = file.indexOf(son)
         
