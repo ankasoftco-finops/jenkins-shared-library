@@ -9,3 +9,4 @@ def call(moduleString) {
     }
     return moduleMap
 }
+// NonCPS is required for this function to work properly
