@@ -5,7 +5,6 @@ def call(currentConfig, newConfig) {
         if (value != null && value != "") {
             currentMap[key] = value
         }
-        echo "key: ${key}, value: ${value}"
     }
     def moduleName = currentConfig =~ /module\s+"([^"]+)"/
     def updatedModule = formatTerraformModule(currentMap, moduleName[0][1])
