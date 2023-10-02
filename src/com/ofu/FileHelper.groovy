@@ -2,7 +2,7 @@ package com.ofu
 
 class FileHelper {
 
-    String readFile(String main) {
+    String readFileWPath(String main) {
         def file = readFile(main).text
         return file
     }
