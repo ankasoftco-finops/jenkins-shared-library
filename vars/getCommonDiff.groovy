@@ -1,6 +1,6 @@
-def getCommonDiff(current, new) {
-    def currentMap = parseTerraformModule(current)
-    def newMap = parseTerraformModule(new)
+def getCommonDiff(currentConfig, newConfig) {
+    def currentMap = parseTerraformModule(currentConfig)
+    def newMap = parseTerraformModule(newConfig)
     newMap.each { key, value ->
         if (value != null && value != "") {
             currentMap[key] = value
