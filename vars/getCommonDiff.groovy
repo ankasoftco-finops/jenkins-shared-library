@@ -12,6 +12,7 @@ def call(currentConfig, newConfig) {
     return updatedModule
 }
 
+@NonCPS
 def parseTerraformModule(moduleString) {
     def moduleMap = [:]
     moduleString.eachLine { line ->
