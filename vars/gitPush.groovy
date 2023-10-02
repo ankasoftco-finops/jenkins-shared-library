@@ -6,6 +6,6 @@ def call(String message) {
             -c user.name=\"omerulusoy41\" \
             -c user.email=\"ulusoyomerfaruk29@gmail.com\" \
             commit -m "${message}"
-        git push
+        git push -u origin dev
     """
 }
