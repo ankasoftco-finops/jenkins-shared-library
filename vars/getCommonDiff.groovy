@@ -7,8 +7,8 @@ def call(currentConfig, newConfig) {
         }
         echo "key: ${key}, value: ${value}"
     }
-    def moduleName = currentMap['module']
-    def updatedModule = formatTerraformModule(currentMap,moduleName)
+    def moduleName = inputText =~ /module\s+"([^"]+)"/
+    def updatedModule = formatTerraformModule(currentMap, moduleName[0][1])
 
     return updatedModule
 }
