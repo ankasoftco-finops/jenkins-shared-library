@@ -1,4 +1,4 @@
-def git_clone(String giturl, String branch = "dev") {
+def call(String giturl, String branch = "dev") {
     retry(5) {
         try {
             timeout(time: 1, unit: "MINUTES") {
