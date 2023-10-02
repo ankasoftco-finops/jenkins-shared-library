@@ -1,4 +1,6 @@
-def call(String fileName,String bas, String son) {
+def call(String fileName,String moduleName) {
+    def bas =  "module "+module_name+" }"
+    def son = "# end "+moduleName
     def file = readFile(file)
     def modBasIndeks = file.indexOf(bas)
     def modSonIndeks = file.indexOf(son)
