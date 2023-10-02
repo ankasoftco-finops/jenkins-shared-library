@@ -1,11 +1,13 @@
 def call(currentConfig, newConfig) {
     def currentMap = parseTerraformModule(currentConfig)
     def newMap = parseTerraformModule(newConfig)
+    echo "newMap: ${newMap}"
     newMap.each { key, value ->
         if (value != null && value != "") {
             currentMap[key] = value
         }
     }
+    echo "currentMap: ${currentMap}"
     def updatedModule = formatTerraformModule(currentMap)
 
     return updatedModule
