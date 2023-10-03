@@ -2,7 +2,7 @@ def call(currentConfig, newConfig) {
     def currentMap = parseTerraformModule(currentConfig)
     def newMap = parseTerraformModule(newConfig)
     newMap.each { key, value ->
-        if (value != null && value != "" && !value.contains("$")) {
+        if (value != null && value != "" && !value.contains("\$")) {
             currentMap[key] = value
         }
     }
