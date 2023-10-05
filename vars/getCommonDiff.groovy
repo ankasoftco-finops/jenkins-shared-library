@@ -16,7 +16,11 @@ def formatTerraformModule(moduleMap,moduleName) {
     def formattedModule = "module \"${moduleName}\" {\n"
     moduleMap.each { key, value ->
         if (key != 'module') {
-            formattedModule += "    ${key} = \"${value}\"\n"
+            if (value.isNumber()) {
+                formattedModule += "    ${key} = ${value}\n"
+            } else {
+                formattedModule += "    ${key} = \"${value}\"\n"
+            }
         }
     }
     formattedModule += "}\n# end ${moduleName}"

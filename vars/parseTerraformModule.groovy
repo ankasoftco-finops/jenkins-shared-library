@@ -2,7 +2,7 @@
 def call(moduleString) {
     def moduleMap = [:]
     moduleString.eachLine { line ->
-        def matcher = line =~ /(\S+)\s*=\s*(".*?"|\S+)/
+        def matcher = line =~ /(\S+)\s*=\s*"([^"]*)"/
         if (matcher) {
             moduleMap[matcher.group(1).trim()] = matcher.group(2).trim()
         }
@@ -10,4 +10,4 @@ def call(moduleString) {
     return moduleMap
 }
 // NonCPS is required for this function to work properly
-///(\S+)\s*=\s*"([^"]*)"/
+// /(\S+)\s*=\s*"([^"]*)"/
